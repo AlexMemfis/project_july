@@ -10,14 +10,45 @@ const personalMovieDB = {
     privat: false
 
 };
+function start() {
+    for (let i = 1; i <= 2; i++) {
+    
+        let answerOne = prompt('Один из последних просмотренных фильмов?', '');
+        let answerTwo = prompt('На сколько оцените его?', '');
 
-let answerOne = prompt('Один из последних просмотренных фильмов?', ''),
-    answerTwo = prompt('На сколько оцените его?', ''),
-    answerThree = prompt('Один из последних просмотренных фильмов?', ''),
-    answerFour = prompt('На сколько оцените его?', '');
+        if ((typeof(answerOne)) === 'string' && (typeof(answerOne)) != null && answerOne != '' && 
+        answerOne.length < 50 && (typeof(answerTwo)) === 'string' && (typeof(answerTwo)) != null && 
+        answerTwo != '' &&  answerTwo.length < 50  ) {
+            personalMovieDB.movies[answerOne] = answerTwo;
+            console.log('Done');
+        } else {
+            i--;
+            console.log('Error');
+        }
+}
+}
+start();
 
-personalMovieDB.movies[answerOne] = answerTwo;
-personalMovieDB.movies[answerThree] = answerFour;
 
+function movieChange () {
+    if (personalMovieDB.count < 10 ) {
+        alert('Просмотрено довольно мало фильмов');
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+            alert('Вы классический зритель');
+      
+        } else if (personalMovieDB.count >= 30) {
+            alert('Вы киноман');
+    
+        } else {
+            alert('Произошла ошибка');
+     
+        }
+    
+    
+    console.log(personalMovieDB);
+}
+movieChange ();
 
-console.log(personalMovieDB);
+if (personalMovieDB.privat === false) {
+
+}
